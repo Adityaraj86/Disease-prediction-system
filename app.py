@@ -721,29 +721,32 @@ def thyroid_disease_prediction_tab(models_data):
         with col1:
             age = st.number_input("Age", min_value=20, max_value=80, value=40, key="thyroid_age",
                                  help="Age in years")
-            gender = st.selectbox("Gender", ["M", "F"], key="thyroid_gender")
-            smoking = st.selectbox("Smoking", ["Yes", "No"], key="thyroid_smoking")
-            hx_smoking = st.selectbox("History of Smoking", ["Yes", "No"], key="thyroid_hx_smoking")
-            hx_radiotherapy = st.selectbox("History of Radiotherapy", ["Yes", "No"], key="thyroid_radiotherapy")
-            thyroid_function = st.selectbox("Thyroid Function", ["Euthyroid", "Hyperthyroid", "Hypothyroid"], 
+            gender = st.selectbox("Gender", ["F", "M"], key="thyroid_gender")
+            smoking = st.selectbox("Smoking", ["No", "Yes"], key="thyroid_smoking")
+            hx_smoking = st.selectbox("History of Smoking", ["No", "Yes"], key="thyroid_hx_smoking")
+            hx_radiotherapy = st.selectbox("History of Radiotherapy", ["No", "Yes"], key="thyroid_radiotherapy")
+            thyroid_function = st.selectbox("Thyroid Function", 
+                                            ["Euthyroid", "Clinical Hyperthyroidism", "Clinical Hypothyroidism", 
+                                             "Subclinical Hyperthyroidism", "Subclinical Hypothyroidism"], 
                                             key="thyroid_function")
         
         with col2:
             physical_exam = st.selectbox("Physical Examination", 
-                                         ["Single nodular goiter-left", "Single nodular goiter-right", 
+                                         ["Normal", "Single nodular goiter-left", "Single nodular goiter-right", 
                                           "Multinodular goiter", "Diffuse goiter"], 
                                          key="thyroid_physical")
-            adenopathy = st.selectbox("Adenopathy", ["Yes", "No"], key="thyroid_adenopathy")
-            pathology = st.selectbox("Pathology", ["Micropapillary", "Papillary", "Follicular"], 
+            adenopathy = st.selectbox("Adenopathy", ["No", "Right", "Left", "Bilateral", "Posterior", "Extensive"], 
+                                     key="thyroid_adenopathy")
+            pathology = st.selectbox("Pathology", ["Micropapillary", "Papillary", "Follicular", "Hurthel cell"], 
                                      key="thyroid_pathology")
             focality = st.selectbox("Focality", ["Uni-Focal", "Multi-Focal"], key="thyroid_focality")
             risk = st.selectbox("Risk", ["Low", "Intermediate", "High"], key="thyroid_risk")
-            t = st.selectbox("T Stage", ["T1a", "T1b", "T2", "T3", "T4"], key="thyroid_t")
+            t = st.selectbox("T Stage", ["T1a", "T1b", "T2", "T3a", "T3b", "T4a", "T4b"], key="thyroid_t")
         
         with col3:
-            n = st.selectbox("N Stage", ["N0", "N1"], key="thyroid_n")
+            n = st.selectbox("N Stage", ["N0", "N1a", "N1b"], key="thyroid_n")
             m = st.selectbox("M Stage", ["M0", "M1"], key="thyroid_m")
-            stage = st.selectbox("Stage", ["I", "II", "III", "IV"], key="thyroid_stage")
+            stage = st.selectbox("Stage", ["I", "II", "III", "IVA", "IVB"], key="thyroid_stage")
             response = st.selectbox("Response", ["Excellent", "Indeterminate", "Biochemical Incomplete", 
                                                 "Structural Incomplete"], key="thyroid_response")
         
